@@ -22,15 +22,30 @@ html {
 }
 
 .movie_poster_container {
+    position: relative;
+    left: -50rem;
     height: 85%;
     width: 30%;
     text-align: right;
+    animation: slide_from_left 3.5s ease-in-out forwards;
+}
+
+@keyframes slide_from_left {
+    80% {left: 1rem;}
+    100% {left: 0;}
 }
 
 .movie_poster {
     height: 100%;
     border-radius: 5%;
     margin-right: 2rem;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.movie_poster:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 8px -4px rgba(151, 151, 151, 0.705);
 }
 
 .movie_info_container {
@@ -38,12 +53,28 @@ html {
     width: 70%;
     color: #fff;
     padding-top: 2rem;
+}
 
+.movie_info_container > *:not(.movie_info_title) {
+    opacity: 0;
+    animation: fade_in 3.5s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fade_in {
+    100% {opacity: 1;}
 }
 
 .movie_info_title {
     text-transform: capitalize;
     margin-top: 2rem;
+    transform: translateY(-150px);
+    animation: slide_from_top 3.5s ease-in-out forwards;
+}
+
+@keyframes slide_from_top {
+    80% {transform: translateY(10px);}
+    100% {transform: translateY(0);}
 }
 
 .movie_genres {

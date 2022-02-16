@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 500px;
+    width: 75%;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin: 2rem auto;
+}
+
+.card_container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_image_container {
+    position: relative;
+    display: inline-block;
+    height: 450px;
+    width: 25%;
+    border: 1px solid orange;
+    border-radius: 5px;
+    margin-right: 5%;
+    left: -50rem;
+    animation: slide_from_left 3.5s ease-in-out forwards;
+    transition: all 1s;
+}
+
+@keyframes slide_from_left {
+    80% {left: 1rem;}
+    100% {left: 0;}
+}
+
+.card_image_container:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 8px -4px rgb(134, 134, 134);
+}
+
+.card_info_container {
+    display: inline-block;
+    width: 65%;
+    height: 450px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card_info_container > * {
+    margin: 2rem;
+}
+
+.card_actions {
+    list-style: none;
+}
+
+.card_info_container p {
+    font-style: italic;
+}
+
+.card_info_container h1 {
+    transform: translateY(-500px);
+    animation: slide_from_top 3.5s ease-in-out forwards;
+}
+
+@keyframes slide_from_top {
+    80% {transform: translateY(20px);}
+    100% {transform: translateY(0);}
+}
+
+.card_info_container > *:not(h1) {
+    opacity: 0;
+    animation: fade_in 3.5s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fade_in {
+    100% {opacity: 1;}
+}
